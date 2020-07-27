@@ -63,6 +63,16 @@ knn.fit(X_train,y_train)
 
 ## Predictions and Evaluations
 
+```python
+pred = knn.predict(X_test)
+from sklearn.metrics import classification_report,confusion_matrix
+print(confusion_matrix(y_test,pred))
+
+```
+
+<img src= "https://user-images.githubusercontent.com/66487971/88530109-8b629c00-d009-11ea-8d9b-8d07e7ef77a3.png" width = 400>
+
+
 
 
 
