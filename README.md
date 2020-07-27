@@ -40,6 +40,29 @@ df_feat = pd.DataFrame(scaled_features,columns=df.columns[:-1])
 df_feat.head()
 ```
 
-<img src= "https://user-images.githubusercontent.com/66487971/88527982-ac75bd80-d006-11ea-877f-4388a67d48ff.png" width = 1000>
+<img src= "https://user-images.githubusercontent.com/66487971/88527982-ac75bd80-d006-11ea-877f-4388a67d48ff.png" width = 900>
+
+## Train Test Split
+
+```python
+
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(scaled_features,df['TARGET CLASS'],test_size=0.30)
+```
+
+## Using KNN
+Trying it for k=1
+
+```python
+
+from sklearn.neighbors import KNeighborsClassifier
+knn = KNeighborsClassifier(n_neighbors=1)
+knn.fit(X_train,y_train)
+
+```
+
+## Predictions and Evaluations
+
+
 
 
