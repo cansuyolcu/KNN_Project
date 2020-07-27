@@ -70,7 +70,41 @@ print(confusion_matrix(y_test,pred))
 
 ```
 
-<img src= "https://user-images.githubusercontent.com/66487971/88530109-8b629c00-d009-11ea-8d9b-8d07e7ef77a3.png" width = 400>
+<img src= "https://user-images.githubusercontent.com/66487971/88530109-8b629c00-d009-11ea-8d9b-8d07e7ef77a3.png" width = 80>
+
+```python
+print(classification_report(y_test,pred))
+```
+
+<img src= "https://user-images.githubusercontent.com/66487971/88530289-d4b2eb80-d009-11ea-98e5-e3facf6f00a5.png" width = 400>
+
+
+## Choosing a K Value
+
+I create a for loop that trains various KNN models with different k values, then keeps track of the error_rate for each of these models with a list.
+
+```python
+error_rate = []
+for i in range(1,40):
+    
+    knn = KNeighborsClassifier(n_neighbors=i)
+    knn.fit(X_train,y_train)
+    pred_i = knn.predict(X_test)
+    error_rate.append(np.mean(pred_i != y_test))
+```
+Now I create a plot.
+
+```python
+plt.figure(figsize=(10,6))
+plt.plot(range(1,40),error_rate,color='blue', linestyle='dashed', marker='o',
+         markerfacecolor='red', markersize=10)
+plt.title('Error Rate vs. K Value')
+plt.xlabel('K')
+plt.ylabel('Error Rate')
+
+```
+
+<img src= "(https://user-images.githubusercontent.com/66487971/88530617-4d19ac80-d00a-11ea-859c-eee99820c689.png" width = 1000>
 
 
 
