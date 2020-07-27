@@ -104,8 +104,30 @@ plt.ylabel('Error Rate')
 
 ```
 
-<img src= "(https://user-images.githubusercontent.com/66487971/88530617-4d19ac80-d00a-11ea-859c-eee99820c689.png" width = 1000>
+<img src= "https://user-images.githubusercontent.com/66487971/88530617-4d19ac80-d00a-11ea-859c-eee99820c689.png" width = 500>
 
+
+## Retrain with new K Value
+
+```python
+
+knn = KNeighborsClassifier(n_neighbors=30)
+
+knn.fit(X_train,y_train)
+pred = knn.predict(X_test)
+
+print('WITH K=30')
+print('\n')
+print(confusion_matrix(y_test,pred))
+print('\n')
+print(classification_report(y_test,pred))
+```
+
+<img src= "https://user-images.githubusercontent.com/66487971/88531104-04162800-d00b-11ea-99fc-68620ff92f9f.png" width = 400>
+
+Not bad!
+
+## This concludes my project here. Thanks for reading all the way through.
 
 
 
